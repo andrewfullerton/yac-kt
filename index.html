@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>YAC Activity: Age of Smartphone Acquisition and Mental Health</title>
+    <style>
+        :root {
+            --bg: #FAFAF7;
+            --card: #fff;
+            --text: #1F2328;
+            --text2: #5A6068;
+            --line: #D9D9D2;
+            --accent: #185FA5;
+            --accentbg: #E6F1FB;
+            --note: #F1EFE8;
+            color-scheme: light;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #17181A;
+                --card: #212326;
+                --text: #ECECE8;
+                --text2: #A8ABB0;
+                --line: #3A3D41;
+                --accent: #85B7EB;
+                --accentbg: #0C447C;
+                --note: #2A2C2F;
+                color-scheme: dark
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #17181A;
+            --card: #212326;
+            --text: #ECECE8;
+            --text2: #A8ABB0;
+            --line: #3A3D41;
+            --accent: #85B7EB;
+            --accentbg: #0C447C;
+            --note: #2A2C2F;
+            color-scheme: dark
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px)
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+        }
+
+        main {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 24px 18px 40px
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.2;
+            margin: 0 0 8px;
+            font-weight: 600
+        }
+
+        p {
+            margin: 0 0 14px
+        }
+
+        .lead {
+            color: var(--text2)
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin: 20px 0
+        }
+
+        .tg {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 16px
+        }
+
+        .tg button {
+            flex: 1 1 40%;
+            padding: 10px 12px;
+            font: inherit;
+            font-size: 15px;
+            color: var(--text);
+            background: transparent;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            cursor: pointer
+        }
+
+        .tg button.on {
+            background: var(--accentbg);
+            color: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .sl2 {
+            margin: 0 0 16px
+        }
+
+        .slt {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin: 0 0 6px
+        }
+
+        .slt label {
+            font-size: 15px;
+            color: var(--text2)
+        }
+
+        .slt output {
+            font-size: 24px;
+            font-weight: 600
+        }
+
+        .slt button {
+            margin-left: auto;
+            font: inherit;
+            font-size: 13px;
+            padding: 2px 10px;
+            color: var(--accent);
+            background: transparent;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+        .se {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            min-height: 46px;
+            font-size: 14px;
+            color: var(--text2);
+            margin-top: 2px
+        }
+
+        .tk {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap
+        }
+
+        .tk i {
+            display: block;
+            width: 2px;
+            height: 10px;
+            background: var(--accent);
+            margin-bottom: 2px
+        }
+
+        .plot {
+            position: relative;
+            padding: 24px 0 0 44px
+        }
+
+        .grid {
+            position: absolute;
+            left: 44px;
+            right: 0;
+            top: 24px;
+            height: 240px
+        }
+
+        .gl {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .gl span {
+            position: absolute;
+            left: -44px;
+            top: -9px;
+            width: 38px;
+            text-align: right;
+            font-size: 12px;
+            color: var(--text2)
+        }
+
+        .bars {
+            position: relative;
+            display: flex;
+            height: 240px;
+            border-bottom: 1.5px solid var(--text2)
+        }
+
+        .col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center
+        }
+
+        .val {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 4px
+        }
+
+        .bar {
+            width: 56%;
+            max-width: 90px;
+            border-radius: 4px 4px 0 0;
+            transition: height .25s
+        }
+
+        .xl {
+            display: flex;
+            padding-left: 44px;
+            margin: 6px 0 16px;
+            font-size: 14px;
+            text-align: center
+        }
+
+        .xl div {
+            flex: 1
+        }
+
+        .hint {
+            font-size: 14px;
+            color: var(--text2);
+            background: var(--note);
+            border-radius: 8px;
+            padding: 10px 12px
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 28px 0 10px;
+            font-weight: 600
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 0 0 14px
+        }
+
+        li {
+            margin: 0 0 8px
+        }
+
+        .src {
+            font-size: 13px;
+            color: var(--text2)
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Is getting a smartphone earlier associated with higher rates of anxiety, depression, alcohol use, and
+            vaping?</h1>
+        <p class="lead">This graph show the percentage of grade 11 and 12 students screening positive for
+            anxiety or depression, or reporting drinking alcohol or vaping in the past year.</p>
+        <p> Use the slider to see how getting a smartphone earlier or later affects each outcome. You can also select a
+            specific outcome to see gender differences.</p>
+
+        <div class="card">
+            <div class="tg" role="group" aria-label="Choose topic">
+                <button id="bA">Anxiety</button>
+                <button id="bD">Depression</button>
+                <button id="bL">Alcohol use</button>
+                <button id="bV">Vaping</button>
+                <button id="bALL" class="on">All outcomes together</button>
+            </div>
+            <div class="sl2">
+                <div class="slt"><label for="age">Currently looking at age</label><output id="ageOut"
+                        for="age">12</output><button id="reset" type="button">Back to 12</button></div>
+                <input type="range" id="age" min="8" max="16" step="1" value="12" style="width:100%">
+                <div class="se"><span>Earlier</span><span class="tk"><i></i>Most students got a smartphone at age
+                        12</span><span>Later</span></div>
+            </div>
+            <div id="unit" style="font-size:14px;color:var(--text2);margin:0 0 4px"></div>
+            <div class="plot">
+                <div class="grid" id="grid"></div>
+                <div class="bars" id="bars" role="img" aria-label="Bar chart"></div>
+            </div>
+            <div class="xl" id="xl"></div>
+            <div class="hint" id="note"></div>
+        </div>
+
+        <h2>What we found</h2>
+        <ul>
+            <li>Youth who got a smartphone earlier were more likely to screen positive for anxiety and depression, and
+                more likely to use alcohol or vaping products in grades 11 and 12.</li>
+            <li>Youth who got a smartphone later were less likely to screen positive for anxiety and depression, and
+                less likely to use alcohol or vaping products in grades 11 and 12.</li>
+        </ul>
+
+        <h2>What we want you to think about</h2>
+        <ul>
+            <li>With the understanding that most youth got a smartphone at age 12, what do you think might explain our
+                findings?</li>
+            <li>What do you think of the differences you're seeing between boys/men, girls/women, and gender-diverse
+                youth?</li>
+        </ul>
+
+        <p class="src">All data used in this webpage are synthetic (i.e. no actual participant data is being used).
+        </p>
+    </main>
+
+    <script>
+        var data = {
+            A: {all: [38, 38.7, 36.6, 35.8, 35.6, 33.8, 32.7, 31.1, 29.9, 28.7, 30.7], gd: [43, 51, 54, 56, 60.5, 63, 59, 57, 59, 50, 58], g: [47, 48, 46, 45.5, 45, 44, 43, 41, 38, 36, 54], b: [24, 23.5, 22.5, 22.5, 22, 21.5, 22, 22.5, 23, 23.5, 24.5]},
+            D: {all: [39.1, 38.9, 34.5, 33.5, 32.8, 30.2, 29.6, 28.8, 28.6, 29, 31.2], gd: [60.5, 66, 62, 60.5, 64.5, 68.5, 68, 70, 80, 79, null], g: [46.5, 46, 43, 41.5, 39.5, 38, 37, 34, 31, 30.5, 53], b: [26.5, 25.5, 23, 21.5, 21, 20.5, 20.5, 21.5, 22.5, 24, 25]},
+            L: {all: [35.9, 34.6, 34.1, 37.2, 37.3, 37.8, 32.7, 26.6, 24.5, 24.8, 28], gd: [41, 35.5, 37.5, 34.5, 34.5, 37, 31.5, 29.5, 35, 40, null], g: [37.5, 37, 35, 38, 38, 37.5, 32.5, 26.5, 24, 24.5, 38], b: [35, 33.5, 35.5, 38, 37, 38, 32.5, 24.5, 22.5, 23, 24.5]},
+            V: {all: [16.1, 14.6, 12.3, 11.5, 10.1, 9.6, 8.8, 8.5, 8.7, 9.1, 8.3], gd: [16, 12, 11.5, 8, 6, 9, 8, 9.5, 15, 19, null], g: [15.5, 14.5, 12.5, 12, 11, 10, 9, 8, 7, 6.5, 8.5], b: [16.5, 14.5, 12, 11, 9.5, 9.5, 9, 8, 9, 9.5, 8.5]}
+        };
+        var groups = [{k: 'all', n: 'All students', c: '#888780'}, {k: 'b', n: 'Boys / men', c: '#378ADD'}, {k: 'g', n: 'Girls / women', c: '#EF9F27'}, {k: 'gd', n: 'Gender-diverse', c: '#7F77DD'}];
+        var outcomes = [{k: 'A', n: 'Anxiety', c: '#888780'}, {k: 'D', n: 'Depression', c: '#888780'}, {k: 'L', n: 'Alcohol use', c: '#888780'}, {k: 'V', n: 'Vaping', c: '#888780'}];
+        var gap = 'The three groups are close together and the uncertainty is large, so small gaps aren’t reliable.';
+        var extra = 'The groups also overlap a lot, so treat gaps with care.';
+        var meta = {
+            A: {max: 100, step: 20, note: 'This graph show the percentage of grade 11 and 12 students who screened positive for anxiety. Move the slider to see how getting a smartphone earlier or later affects it.'},
+            D: {max: 100, step: 20, note: 'This graph show the percentage of grade 11 and 12 students who screened positive for depression. Move the slider to see how getting a smartphone earlier or later affects it.'},
+            L: {max: 50, step: 10, note: 'This graph shows the percentage of grade 11 and 12 students who reported drinking alcohol in the past 12 months. Move the slider to see how getting a smartphone earlier or later affects it.'},
+            V: {max: 20, step: 5, note: 'This graph shows the percentage of grade 11 and 12 students who reported vaping in the past 12 months. Move the slider to see how getting a smartphone earlier or later affects it.'},
+            ALL: {max: 50, step: 10, note: 'This graph shows the percentage of all grade 11 and 12 students who screened positive for anxiety or depression, or reported alcohol use or vaping in the past 12 months. Move the slider to see how getting a smartphone earlier or later affects these outcomes.'}
+        };
+        var modes = ['A', 'D', 'L', 'V', 'ALL'];
+        var mode = 'ALL', H = 240;
+        var barsEl = document.getElementById('bars'), xlEl = document.getElementById('xl');
+        function items() {return mode == 'ALL' ? outcomes : groups;}
+        function build() {
+            barsEl.innerHTML = ''; xlEl.innerHTML = '';
+            items().forEach(function (it, i) {
+                var c = document.createElement('div'); c.className = 'col';
+                c.innerHTML = '<div class="val" id="v_' + i + '"></div><div class="bar" id="r_' + i + '" style="background:' + it.c + ';height:0"></div>';
+                barsEl.appendChild(c);
+                var x = document.createElement('div'); x.textContent = it.n; xlEl.appendChild(x);
+            });
+        }
+        function render() {
+            var a = +document.getElementById('age').value;
+            document.getElementById('ageOut').textContent = a;
+            document.getElementById('reset').style.visibility = a == 12 ? 'hidden' : 'visible';
+            var m = meta[mode], idx = a - 7, desc = [];
+            var grid = document.getElementById('grid'); grid.innerHTML = '';
+            for (var t = 0; t <= m.max; t += m.step) {
+                var l = document.createElement('div'); l.className = 'gl'; l.style.bottom = (t / m.max * H) + 'px';
+                l.innerHTML = '<span>' + t + '%</span>'; grid.appendChild(l);
+            }
+            items().forEach(function (it, i) {
+                var v = mode == 'ALL' ? data[it.k].all[idx] : data[mode][it.k][idx];
+                var val = document.getElementById('v_' + i), bar = document.getElementById('r_' + i);
+                if (v === null) {val.textContent = 'no data'; bar.style.height = '0px'; desc.push(it.n + ': no data'); return;}
+                val.textContent = Math.round(v) + '%';
+                bar.style.height = Math.min(v / m.max, 1) * H + 'px';
+                desc.push(it.n + ': ' + Math.round(v) + '%');
+            });
+            barsEl.setAttribute('aria-label', 'Bar chart, first phone at age ' + a + '. ' + desc.join('; '));
+            document.getElementById('unit').textContent = 'The scale on the left goes up to ' + m.max + '%, and it changes between outcomes.';
+            document.getElementById('note').textContent = a >= 17
+                ? 'Heads up: very few students get their first phone this late, so the real numbers could be quite different. ' + (m.extra || '')
+                : m.note;
+        }
+        document.getElementById('age').oninput = render;
+        document.getElementById('reset').onclick = function () {document.getElementById('age').value = 12; render();};
+        function setMode(k) {mode = k; modes.forEach(function (x) {document.getElementById('b' + x).className = x == k ? 'on' : '';}); build(); render();}
+        modes.forEach(function (k) {document.getElementById('b' + k).onclick = function () {setMode(k)};});
+        build(); render();
+    </script>
+</body>
+
+</html>
